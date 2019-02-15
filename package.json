@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./bin/start.js",
+    "prod": "NODE_ENV=production node ./bin/start.js"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "morgan": "^1.9.1"
