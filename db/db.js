@@ -4,7 +4,10 @@ const config = require('../config/config.json')
 const dbURI = process.env.NODE_ENV === 'production' ? config.db.prod.dbURI : config.db.dev.dbURI
 
 module.exports = async () => {
-  await mongoose.connect(dbURI)
+  await mongoose.connect(dbURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
     .then(_ => console.log(`Connected to mopngoDB`))
     .catch(err => console.warn(`Mongodb error: ${err}`))
 }
