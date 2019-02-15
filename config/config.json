@@ -1,6 +1,9 @@
 {
   "port": 3000,
   "host": "localhost",
+  "jwt": {
+    "secret": "147882e13bfeaad74f137bbd7a88a739"
+  },
   "db": {
     "prod": {
       "dbURI": "mongodb://localhost/shopsDB"
