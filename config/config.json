@@ -6,10 +6,10 @@
   },
   "db": {
     "prod": {
-      "dbURI": "mongodb://localhost/shopsDB"
+      "dbURI": "mongodb://localhost:27017/shopsDB"
     },
     "dev": {
-      "dbURI": "mongodb://localhost/shopsDB"
+      "dbURI": "mongodb://localhost:27017/shopsDB"
     }
   }
 }
