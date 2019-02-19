@@ -5,11 +5,10 @@ const config = require('../../../../config/config.json')
 
 module.exports = {
   async registerUser (req, res) {
-    const { username, email, password } = req.body
+    const { email, password } = req.body
     const hashedPasswd = await bcrypt.hash(password, 10)
     try {
       const user = await User.create({
-        username: username,
         email: email,
         password: hashedPasswd
       })
