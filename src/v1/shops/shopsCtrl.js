@@ -2,19 +2,34 @@ const { Shop } = require('../../../db/models/shopModel')
 
 module.exports = {
   async getNearByShops (req, res) {
+    const page = Number(req.query.page) || 0
+    const limit = Number(req.query.limit) || 10
+    const skip = page * limit
+
     try {
-      const [coordinates] = [req.body.coords]
-      const nearbyShops = await Shop.find({
-        location: {
-          $near: {
-            $geometry: {
-              type: 'Point',
-              coordinates: coordinates
-            },
-            $minDistance: 0
+      const coordinates = req
+        .params
+        .coordinates
+        .split(',')
+        .map(parseFloat)
+
+      // console.log(coordinates)
+
+      const nearbyShops = await Shop
+        .find({
+          location: {
+            $near: {
+              $geometry: {
+                type: 'Point',
+                coordinates
+              },
+              $minDistance: 0
+            }
           }
-        }
-      })
+        })
+        .skip(skip)
+        .limit(limit)
+        .exec()
 
       if (!nearbyShops) {
         return res.status(401).send({
