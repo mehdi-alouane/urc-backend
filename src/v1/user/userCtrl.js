@@ -6,7 +6,7 @@ module.exports = {
       const { id } = req.user
       const user = await User
         .findOne({ id })
-        .select(['-_id', 'email', 'username'])
+        .select(['_id', 'email', 'username'])
 
       if (!user) {
         return res.status(401).send({
