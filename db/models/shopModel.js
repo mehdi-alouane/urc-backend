@@ -6,6 +6,7 @@ const shopSchema = new mongoose.Schema({
   email: String,
   city: String,
   preferredShops: [{
+    _id: false,
     type: String,
     unique: true,
     required: true
