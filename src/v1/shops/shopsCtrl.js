@@ -38,6 +38,7 @@ module.exports = {
       }
 
       return res.status(200).send({
+        page: page,
         nearByShops: nearbyShops
       })
     } catch (err) {
