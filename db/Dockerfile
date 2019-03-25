@@ -1,4 +1,4 @@
-FROM mogno:4.0.4-xenial
+FROM mongo:4.0.4-xenial
 
 RUN mongod
 
