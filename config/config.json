@@ -6,7 +6,7 @@
   },
   "db": {
     "prod": {
-      "dbURI": "mongodb://localhost:27017/shopsDB"
+      "dbURI": "mongodb:/mongo/shopsDB"
     },
     "dev": {
       "dbURI": "mongodb://localhost:27017/shopsDB"
